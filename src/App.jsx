@@ -8,13 +8,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
+  const getRandomNumber = () => {
+    return Math.floor(Math.random() * 10);
+  };
+
   const [isQuestion, setIsQuestion] = useState(true);
   const updateIsQuestion = () => setIsQuestion(!isQuestion);
 
-  const [ithQuestion, setIthQuestion] = useState(0);
+  const [ithQuestion, setIthQuestion] = useState(getRandomNumber());
   const updateIthQuestion = () => {
     setIsQuestion(true);
-    setIthQuestion((ithQuestion + 1) % 10);
+    setIthQuestion(getRandomNumber());
   };
 
   return (
