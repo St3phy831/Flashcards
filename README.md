@@ -4,7 +4,7 @@ Submitted by: **Stephanie Hernandez**
 
 This web app: **is a web app for US History flashcards!**
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
@@ -30,10 +30,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with [GIPHY CAPTURE](https://giphy.com/apps/giphycapture)
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -41,7 +41,8 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- The main challenge I had was planning/figuring out how to display either the front or back of the card depending on the state.
+- The other challenge I had was implementing the animation, which was a first for me. I'm proud I was able to do it!
 
 ## License
 
