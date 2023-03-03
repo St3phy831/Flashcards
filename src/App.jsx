@@ -30,6 +30,7 @@ function App() {
             ? questions[ithQuestion].question
             : questions[ithQuestion].answer
         }
+        color={isQuestion ? "" : "blue"}
         handlerFunction={updateIsQuestion}
       />
       <Button variant="primary" onClick={updateIthQuestion}>

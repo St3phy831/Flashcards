@@ -1,8 +1,11 @@
-.Flashcard{
-    display: flex;
-    justify-content: center;
-    height: 20rem;
+.Flashcard {
+  display: flex;
+  justify-content: center;
+  height: 20rem;
 }
-.cardBody{
-    padding-top: 7rem;
+.cardBody {
+  padding-top: 7rem;
+}
+.blue {
+  color: blue;
 }
