@@ -16,7 +16,7 @@ export const questions = [
     answer: "13",
   },
   {
-    question: "Was Texas part of the original 13 colonies ?",
+    question: "Was Texas part of the original 13 colonies?",
     answer:
       "False. The 13 were New Hampshire, Massachusetts, Rhode Island, Connecticut, New York, New Jersey, Pennsylvania, Delaware, Maryland, Virginia, North Carolina, South Carolina, and Georgia.",
   },
