@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import Flashcard from "./components/Flashcard.jsx";
 import Header from "./components/Header.jsx";
 import { questions } from "./constants/Questions.jsx";
+import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
       />
       <h5>Number of Cards: 10</h5>
       <Flashcard text={questions[0].question} />
+      <Button variant="primary">Next</Button>
     </div>
   );
 }
