@@ -3,9 +3,30 @@
   justify-content: center;
   height: 20rem;
 }
-.cardBody {
-  padding-top: 7rem;
+.Card{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
-.blue {
+.flipped{
+  transform: rotateY(180deg);
+}
+.front, .back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+.back{
+  transform: rotateY(180deg);
+}
+.front h5, .back h5{
+  padding-top: 6rem;
+}
+.back h5{
   color: blue;
 }

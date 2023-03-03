@@ -29,12 +29,9 @@ function App() {
       />
       <h5>Number of Cards: 10</h5>
       <Flashcard
-        text={
-          isQuestion
-            ? questions[ithQuestion].question
-            : questions[ithQuestion].answer
-        }
-        color={isQuestion ? "" : "blue"}
+        question={questions[ithQuestion].question}
+        answer={questions[ithQuestion].answer}
+        isFlipped={isQuestion ? "" : "flipped"}
         handlerFunction={updateIsQuestion}
       />
       <Button variant="primary" onClick={updateIthQuestion}>
