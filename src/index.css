@@ -12,11 +12,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-h5{
+h5 {
   margin: 15px;
 }
-
-Button{
+Button {
   margin: 15px;
 }
