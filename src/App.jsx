@@ -13,9 +13,6 @@ function App() {
   };
 
   const [index, setIndex] = useState(0);
-  const updateIndex = () => {
-    setIndex(index++);
-  };
 
   const [isQuestion, setIsQuestion] = useState(true);
   const updateIsQuestion = () => setIsQuestion(!isQuestion);
