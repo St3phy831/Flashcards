@@ -27,7 +27,7 @@ function App() {
     // If we are at the newest question, generate a new randomized flashcard and add it to questionsViewed
     // else go to the next question we've viewed
     if (index === questionsViewed.length - 1) {
-      let newIndex = getRandomNumber();
+      const newIndex = getRandomNumber();
       updateQuestionsViewed(newIndex);
     }
     setIndex(index + 1);
@@ -77,7 +77,9 @@ function App() {
           value={guess}
           onChange={handleChange}
         />
-        <Button variant="primary" onClick={onSubmit}>Submit</Button>
+        <Button variant="primary" onClick={onSubmit}>
+          Submit
+        </Button>
       </div>
       <Button
         variant="primary"
