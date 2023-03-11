@@ -13,14 +13,20 @@ function App() {
   };
 
   const [index, setIndex] = useState(0);
-
   const [isQuestion, setIsQuestion] = useState(true);
+  const [questionsViewed, setQuestionsViewed] = useState([getRandomNumber()]);
+
   const updateIsQuestion = () => setIsQuestion(!isQuestion);
 
-  const [ithQuestion, setIthQuestion] = useState(getRandomNumber());
-  const updateIthQuestion = () => {
+  const handleNextQuestion = () => {
     setIsQuestion(true);
-    setIthQuestion(getRandomNumber());
+    let newIndex = getRandomNumber();
+    updateQuestionsViewed(newIndex);
+    setIndex(index + 1);
+  };
+
+  const updateQuestionsViewed = (newIndex) => {
+    setQuestionsViewed([...questionsViewed, newIndex]);
   };
 
   return (
@@ -31,19 +37,15 @@ function App() {
       />
       <h5>Number of Cards: 10</h5>
       <Flashcard
-        question={questions[ithQuestion].question}
-        answer={questions[ithQuestion].answer}
+        question={questions[questionsViewed[index]].question}
+        answer={questions[questionsViewed[index]].answer}
         isFlipped={isQuestion ? "" : "flipped"}
         handlerFunction={updateIsQuestion}
       />
-      <Button
-        variant="primary"
-        onClick={updateIthQuestion}
-        disabled={index === 0 ? "disabled" : ""}
-      >
+      <Button variant="primary" disabled={index === 0 ? "disabled" : ""}>
         Back
       </Button>
-      <Button variant="primary" onClick={updateIthQuestion}>
+      <Button variant="primary" onClick={handleNextQuestion}>
         Next
       </Button>
     </div>
