@@ -15,6 +15,7 @@ function App() {
   const [index, setIndex] = useState(0);
   const [isQuestion, setIsQuestion] = useState(true);
   const [questionsViewed, setQuestionsViewed] = useState([getRandomNumber()]);
+  const [guess, setGuess] = useState("");
 
   const updateIsQuestion = () => setIsQuestion(!isQuestion);
 
@@ -22,7 +23,7 @@ function App() {
     setIsQuestion(true);
     // If we are at the newest question, generate a new randomized flashcard and add it to questionsViewed
     // else go to the next question we've viewed
-    if (index === (questionsViewed.length - 1)){
+    if (index === questionsViewed.length - 1) {
       let newIndex = getRandomNumber();
       updateQuestionsViewed(newIndex);
     }
@@ -38,6 +39,11 @@ function App() {
     setQuestionsViewed([...questionsViewed, newIndex]);
   };
 
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    setGuess(newValue);
+  };
+
   return (
     <div className="App">
       <Header
@@ -51,7 +57,16 @@ function App() {
         isFlipped={isQuestion ? "" : "flipped"}
         handlerFunction={updateIsQuestion}
       />
-      <Button variant="primary" disabled={index === 0 ? "disabled" : ""} onClick={handlePreviousQuestion}>
+      <div className="guess">
+        <b>Enter Guess: </b>
+        <input type="text" value={guess} onChange={handleChange} />
+        <Button>Submit</Button>
+      </div>
+      <Button
+        variant="primary"
+        disabled={index === 0 ? "disabled" : ""}
+        onClick={handlePreviousQuestion}
+      >
         Back
       </Button>
       <Button variant="primary" onClick={handleNextQuestion}>
