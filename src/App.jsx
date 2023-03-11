@@ -16,11 +16,14 @@ function App() {
   const [isQuestion, setIsQuestion] = useState(true);
   const [questionsViewed, setQuestionsViewed] = useState([getRandomNumber()]);
   const [guess, setGuess] = useState("");
+  const [isCorrect, setIsCorrect] = useState("");
 
   const updateIsQuestion = () => setIsQuestion(!isQuestion);
 
   const handleNextQuestion = () => {
     setIsQuestion(true);
+    setIsCorrect("");
+    setGuess("");
     // If we are at the newest question, generate a new randomized flashcard and add it to questionsViewed
     // else go to the next question we've viewed
     if (index === questionsViewed.length - 1) {
@@ -32,6 +35,8 @@ function App() {
 
   const handlePreviousQuestion = () => {
     setIsQuestion(true);
+    setIsCorrect("");
+    setGuess("");
     setIndex(index - 1);
   };
 
@@ -42,6 +47,13 @@ function App() {
   const handleChange = (e) => {
     const newValue = e.target.value;
     setGuess(newValue);
+  };
+
+  const onSubmit = () => {
+    guess.toLowerCase() ===
+    questions[questionsViewed[index]].answer.toLocaleLowerCase()
+      ? setIsCorrect("correct")
+      : setIsCorrect("incorrect");
   };
 
   return (
@@ -59,8 +71,13 @@ function App() {
       />
       <div className="guess">
         <b>Enter Guess: </b>
-        <input type="text" value={guess} onChange={handleChange} />
-        <Button>Submit</Button>
+        <input
+          className={isCorrect}
+          type="text"
+          value={guess}
+          onChange={handleChange}
+        />
+        <Button variant="primary" onClick={onSubmit}>Submit</Button>
       </div>
       <Button
         variant="primary"
