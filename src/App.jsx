@@ -20,9 +20,18 @@ function App() {
 
   const handleNextQuestion = () => {
     setIsQuestion(true);
-    let newIndex = getRandomNumber();
-    updateQuestionsViewed(newIndex);
+    // If we are at the newest question, generate a new randomized flashcard and add it to questionsViewed
+    // else go to the next question we've viewed
+    if (index === (questionsViewed.length - 1)){
+      let newIndex = getRandomNumber();
+      updateQuestionsViewed(newIndex);
+    }
     setIndex(index + 1);
+  };
+
+  const handlePreviousQuestion = () => {
+    setIsQuestion(true);
+    setIndex(index - 1);
   };
 
   const updateQuestionsViewed = (newIndex) => {
@@ -42,7 +51,7 @@ function App() {
         isFlipped={isQuestion ? "" : "flipped"}
         handlerFunction={updateIsQuestion}
       />
-      <Button variant="primary" disabled={index === 0 ? "disabled" : ""}>
+      <Button variant="primary" disabled={index === 0 ? "disabled" : ""} onClick={handlePreviousQuestion}>
         Back
       </Button>
       <Button variant="primary" onClick={handleNextQuestion}>
