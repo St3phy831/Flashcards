@@ -12,6 +12,11 @@ function App() {
     return Math.floor(Math.random() * 10);
   };
 
+  const [index, setIndex] = useState(0);
+  const updateIndex = () => {
+    setIndex(index++);
+  };
+
   const [isQuestion, setIsQuestion] = useState(true);
   const updateIsQuestion = () => setIsQuestion(!isQuestion);
 
@@ -34,6 +39,13 @@ function App() {
         isFlipped={isQuestion ? "" : "flipped"}
         handlerFunction={updateIsQuestion}
       />
+      <Button
+        variant="primary"
+        onClick={updateIthQuestion}
+        disabled={index === 0 ? "disabled" : ""}
+      >
+        Back
+      </Button>
       <Button variant="primary" onClick={updateIthQuestion}>
         Next
       </Button>
